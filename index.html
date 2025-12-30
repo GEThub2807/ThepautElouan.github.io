@@ -69,6 +69,13 @@
             }
         ];
 
+        const logoIcons = 
+        {
+            github: "Images/Icons/github.png",
+            linkedin: "Images/Icons/linkedIn.png",
+            mail: "Images/Icons/mail.jpg"
+        }
+
         // Variables globales
         let activeTab = 'profile';
 
@@ -135,14 +142,26 @@
                                 <p class="text-gray-300 leading-relaxed mb-6">${profileData.bio}</p>
                                 
                                 <div class="flex gap-4 justify-center md:justify-start mt-6">
+                                    <img
+                                        src="${logoIcons.mail}"
+                                        alt="Mail"
+                                    />
                                     <a href="mailto:${profileData.email}" class="p-3 bg-purple-600/20 hover:bg-purple-600/40 rounded-lg transition-colors">
-                                        <span class="text-purple-400 text-xl">✉️</span>
+                                        <span class="text-purple-400 text-xl"></span>
                                     </a>
+                                    <img
+                                        src="${logoIcons.github}"
+                                        alt="GitHub"
+                                    />
                                     <a href="${profileData.github}" target="_blank" class="p-3 bg-purple-600/20 hover:bg-purple-600/40 rounded-lg transition-colors">
-                                        <span class="text-purple-400 text-xl">🐙</span>
+                                        <span class="text-purple-400 text-xl"></span>
                                     </a>
+                                    <img
+                                        src="${logoIcons.linkedin}"
+                                        alt="LinkedIn"
+                                    />
                                     <a href="${profileData.linkedin}" target="_blank" class="p-3 bg-purple-600/20 hover:bg-purple-600/40 rounded-lg transition-colors">
-                                        <span class="text-purple-400 text-xl">💼</span>
+                                        <span class="text-purple-400 text-xl"></span>
                                     </a>
                                 </div>
                             </div>
@@ -265,7 +284,7 @@
                 <footer class="bg-black/30 backdrop-blur-md border-t border-purple-500/20 mt-20">
                     <div class="container mx-auto px-6 py-8">
                         <p class="text-center text-gray-400">
-                            © 2024 ${profileData.name}. Portfolio développé avec ❤️
+                            © 2025 ${profileData.name}. Portfolio développé avec ❤️
                         </p>
                     </div>
                 </footer>
