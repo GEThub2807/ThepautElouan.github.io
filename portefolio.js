@@ -4,11 +4,11 @@ import { Github, Linkedin, Mail, ExternalLink, FileText, Code, User, Plus, Edit2
 const GameDevPortfolio = () => {
   // Données modifiables - Personnalisez facilement ici
   const [profile, setProfile] = useState({
-    name: "Votre Nom",
-    title: "Développeur de Jeux Vidéo",
-    bio: "Étudiant en 3ème année de développement de jeux vidéo, spécialisé en C++ et C#. Passionné par la création d'expériences interactives et la programmation gameplay.",
-    email: "votre.email@example.com",
-    github: "https://github.com/votrenom",
+    name: "THEPAUT Elouan",
+    title: "Gameplay Developper / Game Designer",
+    bio: "Third-year video game development student, specializing in C++ and C#. Passionate about level design, resolving code issues and making cool games.",
+    email: "e.thepaut28@gmail.com",
+    github: "https://github.com/GEThub2807",
     linkedin: "https://linkedin.com/in/votrenom",
     photo: "https://via.placeholder.com/150"
   });
@@ -18,6 +18,7 @@ const GameDevPortfolio = () => {
       id: 1,
       title: "Platformer 2D",
       description: "Jeu de plateforme développé en Unity avec C#. Système de physiques personnalisé et mécaniques de mouvement fluides.",
+      rôle: "",
       tech: ["Unity", "C#", "Git"],
       image: "https://via.placeholder.com/400x250",
       link: "",
@@ -52,55 +53,13 @@ const GameDevPortfolio = () => {
   ]);
 
   const [activeTab, setActiveTab] = useState('profile');
-  const [editMode, setEditMode] = useState(false);
-
-  const addProject = () => {
-    const newProject = {
-      id: Date.now(),
-      title: "Nouveau Projet",
-      description: "Description du projet",
-      tech: ["Tech1", "Tech2"],
-      image: "https://via.placeholder.com/400x250",
-      link: "",
-      year: new Date().getFullYear().toString()
-    };
-    setProjects([...projects, newProject]);
-  };
-
-  const deleteProject = (id) => {
-    setProjects(projects.filter(p => p.id !== id));
-  };
-
-  const addDocument = () => {
-    const newDoc = {
-      id: Date.now(),
-      title: "Nouveau Document",
-      description: "Description du document",
-      date: new Date().toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' }),
-      link: "#"
-    };
-    setDocuments([...documents, newDoc]);
-  };
-
-  const deleteDocument = (id) => {
-    setDocuments(documents.filter(d => d.id !== id));
-  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       {/* Header */}
       <header className="bg-black/30 backdrop-blur-md border-b border-purple-500/20 sticky top-0 z-50">
         <div className="container mx-auto px-6 py-4">
-          <div className="flex justify-between items-center">
-            <h1 className="text-2xl font-bold text-white">{profile.name}</h1>
-            <button
-              onClick={() => setEditMode(!editMode)}
-              className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg flex items-center gap-2 transition-colors"
-            >
-              <Edit2 size={16} />
-              {editMode ? 'Quitter' : 'Mode Édition'}
-            </button>
-          </div>
+          <h1 className="text-2xl font-bold text-white">{profile.name}</h1>
         </div>
       </header>
 
@@ -164,33 +123,9 @@ const GameDevPortfolio = () => {
                   className="w-40 h-40 rounded-full border-4 border-purple-500/50"
                 />
                 <div className="flex-1 text-center md:text-left">
-                  {editMode ? (
-                    <div className="space-y-4">
-                      <input
-                        type="text"
-                        value={profile.name}
-                        onChange={(e) => setProfile({...profile, name: e.target.value})}
-                        className="w-full bg-black/30 text-white px-4 py-2 rounded-lg border border-purple-500/30 text-2xl font-bold"
-                      />
-                      <input
-                        type="text"
-                        value={profile.title}
-                        onChange={(e) => setProfile({...profile, title: e.target.value})}
-                        className="w-full bg-black/30 text-purple-400 px-4 py-2 rounded-lg border border-purple-500/30 text-xl"
-                      />
-                      <textarea
-                        value={profile.bio}
-                        onChange={(e) => setProfile({...profile, bio: e.target.value})}
-                        className="w-full bg-black/30 text-gray-300 px-4 py-2 rounded-lg border border-purple-500/30 h-32"
-                      />
-                    </div>
-                  ) : (
-                    <>
-                      <h2 className="text-4xl font-bold text-white mb-2">{profile.name}</h2>
-                      <p className="text-xl text-purple-400 mb-4">{profile.title}</p>
-                      <p className="text-gray-300 leading-relaxed mb-6">{profile.bio}</p>
-                    </>
-                  )}
+                  <h2 className="text-4xl font-bold text-white mb-2">{profile.name}</h2>
+                  <p className="text-xl text-purple-400 mb-4">{profile.title}</p>
+                  <p className="text-gray-300 leading-relaxed mb-6">{profile.bio}</p>
                   
                   <div className="flex gap-4 justify-center md:justify-start mt-6">
                     <a href={`mailto:${profile.email}`} className="p-3 bg-purple-600/20 hover:bg-purple-600/40 rounded-lg transition-colors">
@@ -238,34 +173,15 @@ const GameDevPortfolio = () => {
         {/* Projects Section */}
         {activeTab === 'projects' && (
           <div>
-            <div className="flex justify-between items-center mb-8">
+            <div className="mb-8">
               <h2 className="text-3xl font-bold text-white">Mes Projets</h2>
-              {editMode && (
-                <button
-                  onClick={addProject}
-                  className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg flex items-center gap-2 transition-colors"
-                >
-                  <Plus size={18} />
-                  Ajouter un projet
-                </button>
-              )}
             </div>
             <div className="grid md:grid-cols-2 gap-8">
               {projects.map(project => (
                 <div key={project.id} className="bg-white/5 backdrop-blur-lg rounded-2xl overflow-hidden border border-purple-500/20 hover:border-purple-500/40 transition-all hover:transform hover:scale-105">
                   <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
                   <div className="p-6">
-                    <div className="flex justify-between items-start mb-2">
-                      <h3 className="text-xl font-bold text-white">{project.title}</h3>
-                      {editMode && (
-                        <button
-                          onClick={() => deleteProject(project.id)}
-                          className="text-red-400 hover:text-red-300"
-                        >
-                          <Trash2 size={18} />
-                        </button>
-                      )}
-                    </div>
+                    <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
                     <p className="text-sm text-purple-400 mb-3">{project.year}</p>
                     <p className="text-gray-300 mb-4">{project.description}</p>
                     <div className="flex flex-wrap gap-2 mb-4">
@@ -290,17 +206,8 @@ const GameDevPortfolio = () => {
         {/* Documents Section */}
         {activeTab === 'documents' && (
           <div>
-            <div className="flex justify-between items-center mb-8">
+            <div className="mb-8">
               <h2 className="text-3xl font-bold text-white">Game Concepts & Documents</h2>
-              {editMode && (
-                <button
-                  onClick={addDocument}
-                  className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg flex items-center gap-2 transition-colors"
-                >
-                  <Plus size={18} />
-                  Ajouter un document
-                </button>
-              )}
             </div>
             <div className="max-w-4xl mx-auto space-y-4">
               {documents.map(doc => (
@@ -320,14 +227,6 @@ const GameDevPortfolio = () => {
                       <a href={doc.link} className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors inline-flex items-center gap-2">
                         Télécharger <ExternalLink size={16} />
                       </a>
-                      {editMode && (
-                        <button
-                          onClick={() => deleteDocument(doc.id)}
-                          className="px-3 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors"
-                        >
-                          <Trash2 size={16} />
-                        </button>
-                      )}
                     </div>
                   </div>
                 </div>
