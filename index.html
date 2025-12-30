@@ -18,7 +18,8 @@
 
     <script>
         // Configuration des données
-        const profileData = {
+        const profileData = 
+        {
             name: "THEPAUT Elouan",
             title: "Gameplay Developer / Game Designer",
             bio: "Third-year video game development student, specializing in C++ and C#. Passionate about level design, resolving code issues and making cool games.",
@@ -28,7 +29,8 @@
             photo: "Images/THEPAUTElouanPic.jpg"
         };
 
-        const projectsData = [
+        const projectsData = 
+        [
             {
                 id: 1,
                 title: "Platformer 2D",
@@ -49,7 +51,8 @@
             }
         ];
 
-        const documentsData = [
+        const documentsData = 
+        [
             {
                 id: 1,
                 title: "GDD - RPG Fantasy",
@@ -70,7 +73,8 @@
         let activeTab = 'profile';
 
         // Fonctions de rendu
-        function renderHeader() {
+        function renderHeader() 
+        {
             return `
                 <header class="bg-black/30 backdrop-blur-md border-b border-purple-500/20 sticky top-0 z-50">
                     <div class="container mx-auto px-6 py-4">
@@ -80,8 +84,10 @@
             `;
         }
 
-        function renderNav() {
-            const tabs = [
+        function renderNav() 
+        {
+            const tabs = 
+            [
                 { id: 'profile', label: 'Profil', icon: '👤' },
                 { id: 'projects', label: 'Projets', icon: '💻' },
                 { id: 'documents', label: 'Game Concepts', icon: '📄' }
@@ -112,7 +118,8 @@
             `;
         }
 
-        function renderProfile() {
+        function renderProfile() 
+        {
             return `
                 <div class="max-w-4xl mx-auto">
                     <div class="bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-purple-500/20">
@@ -171,7 +178,8 @@
             `;
         }
 
-        function renderProjects() {
+        function renderProjects() 
+        {
             return `
                 <div>
                     <div class="mb-8">
@@ -205,7 +213,8 @@
             `;
         }
 
-        function renderDocuments() {
+        function renderDocuments() 
+        {
             return `
                 <div>
                     <div class="mb-8">
@@ -236,7 +245,8 @@
             `;
         }
 
-        function renderMain() {
+        function renderMain() 
+        {
             let content = '';
             if (activeTab === 'profile') content = renderProfile();
             else if (activeTab === 'projects') content = renderProjects();
@@ -249,7 +259,8 @@
             `;
         }
 
-        function renderFooter() {
+        function renderFooter() 
+        {
             return `
                 <footer class="bg-black/30 backdrop-blur-md border-t border-purple-500/20 mt-20">
                     <div class="container mx-auto px-6 py-8">
@@ -261,7 +272,8 @@
             `;
         }
 
-        function render() {
+        function render() 
+        {
             const app = `
                 <div class="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
                     ${renderHeader()}
@@ -273,7 +285,8 @@
             document.getElementById('root').innerHTML = app;
         }
 
-        function changeTab(tab) {
+        function changeTab(tab) 
+        {
             activeTab = tab;
             render();
         }
