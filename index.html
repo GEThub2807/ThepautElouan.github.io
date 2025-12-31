@@ -11,6 +11,15 @@
             padding: 0;
             font-family: system-ui, -apple-system, sans-serif;
         }
+        .tech-logo {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+        }
+        .tech-logo.active {
+            filter: none;
+        }
     </style>
 </head>
 <body>
@@ -22,7 +31,7 @@
         {
             name: "THEPAUT Elouan",
             title: "Gameplay Developer / Game Designer",
-            bio: "Third-year video game development student, specializing in C++ and C#. Passionate about level design, resolving code issues and making cool games.",
+            bio: "Third-year video game development student, specializing in C++ and C#. Passionate about level design, resolving code issues and running on track.",
             email: "e.thepaut28@gmail.com",
             github: "https://github.com/GEThub2807",
             linkedin: "https://www.linkedin.com/in/elouan-thepaut",
@@ -33,21 +42,53 @@
         [
             {
                 id: 1,
-                title: "Platformer 2D",
-                description: "Jeu de plateforme développé en Unity avec C#. Système de physiques personnalisé et mécaniques de mouvement fluides.",
+                title: "Highway Road",
+                description: "2D card game with only UI to train feedbacks and UI/UX, made in 1 week, seek the entire week",
                 tech: ["Unity", "C#", "Git"],
+                category: "Unity",
                 image: "https://via.placeholder.com/400x250/8b5cf6/ffffff?text=Platformer+2D",
                 link: "",
-                year: "2024"
+                year: "2025"
             },
             {
                 id: 2,
-                title: "Moteur de Jeu 3D",
-                description: "Moteur graphique développé en C++ avec OpenGL. Rendu 3D, gestion de scènes et système d'entités-composants.",
-                tech: ["C++", "OpenGL", "GLSL"],
+                title: "3D engine",
+                description: "Shadow mapping, frame resources and sky boxes with cubemap for a school engine from scratch in 2 months.",
+                tech: ["C++", "DirectX12", "HLSL"],
+                category: "C++",
                 image: "https://via.placeholder.com/400x250/8b5cf6/ffffff?text=Moteur+3D",
                 link: "",
-                year: "2023"
+                year: "2025"
+            },
+            {
+                id: 3,
+                title: "Trailer of level design",
+                description: "Little cinematic to introduce myself to cinematics in UE5 .",
+                tech: ["Unreal Engine"],
+                category: "Unreal Engine",
+                image: "https://via.placeholder.com/400x250/8b5cf6/ffffff?text=Unreal+Engine",
+                link: "",
+                year: "2025"
+            },
+            {
+                id: 4,
+                title: "Lite Hungry Shark",
+                description: "Procedural game with noise, the goal is simple: choose a seed, eat the most fishs in 90 seconds, challenge your friends",
+                tech: ["Unity", "C#", "PC/Mobile"],
+                category: "Unity",
+                image: "https://via.placeholder.com/400x250/8b5cf6/ffffff?text=Jeu+Mobile",
+                link: "",
+                year: "2025"
+            },
+            {
+                id: 5,
+                title: "Shoot Em Up",
+                description: "Colaborating project with artists and marketing team for the Henri Malatre Museum.",
+                tech: ["C++"],
+                category: "C++",
+                image: "https://via.placeholder.com/400x250/8b5cf6/ffffff?text=Simulation+C++",
+                link: "",
+                year: "2025"
             }
         ];
 
@@ -56,16 +97,56 @@
             {
                 id: 1,
                 title: "GDD - RPG Fantasy",
-                description: "Document de game design complet pour un RPG en monde ouvert avec système de progression.",
-                date: "Décembre 2024",
-                link: "#"
+                description: "Complete game design document for an open-world RPG with progression system.",
+                date: "December 2024",
+                link: "#",
+                type: "GDD",
+                icon: "📘"
             },
             {
                 id: 2,
                 title: "Concept - Puzzle Game",
-                description: "Concept de jeu de puzzle innovant basé sur la manipulation du temps.",
-                date: "Novembre 2024",
-                link: "#"
+                description: "Innovative puzzle game concept based on time manipulation.",
+                date: "November 2024",
+                link: "#",
+                type: "Concept",
+                icon: "💡"
+            },
+            {
+                id: 3,
+                title: "GDD - FPS Tactical",
+                description: "Design document for a tactical FPS with cooperation system.",
+                date: "January 2025",
+                link: "#",
+                type: "GDD",
+                icon: "📘"
+            },
+            {
+                id: 4,
+                title: "Concept - Rogue-like",
+                description: "Rogue-like game concept with procedural dungeon generation.",
+                date: "October 2024",
+                link: "#",
+                type: "Concept",
+                icon: "💡"
+            },
+            {
+                id: 5,
+                title: "GDD - Platformer 3D",
+                description: "Complete document for a 3D platformer with parkour mechanics.",
+                date: "February 2025",
+                link: "#",
+                type: "GDD",
+                icon: "📘"
+            },
+            {
+                id: 6,
+                title: "Concept - Narrative Game",
+                description: "Narrative game concept with moral choices and multiple endings.",
+                date: "March 2025",
+                link: "#",
+                type: "Concept",
+                icon: "💡"
             }
         ];
 
@@ -73,11 +154,16 @@
         {
             github: "Images/Icons/github.png",
             linkedin: "Images/Icons/linkedIn.png",
-            mail: "Images/Icons/mail.jpg"
+            mail: "Images/Icons/mail.jpg",
+            cpp: "Images/Icons/cpp.png",
+            unity: "Images/Icons/unity.png",
+            unreal: "Images/Icons/unreal.png"
         }
 
         // Variables globales
         let activeTab = 'profile';
+        let activeFilter = 'all';
+        let activeDocFilter = 'all';
 
         // Fonctions de rendu
         function renderHeader() 
@@ -95,8 +181,8 @@
         {
             const tabs = 
             [
-                { id: 'profile', label: 'Profil', icon: '👤' },
-                { id: 'projects', label: 'Projets', icon: '💻' },
+                { id: 'profile', label: 'Profile', icon: '👤' },
+                { id: 'projects', label: 'Projects', icon: '💻' },
                 { id: 'documents', label: 'Game Concepts', icon: '📄' }
             ];
 
@@ -146,33 +232,36 @@
                                     class="p-3 bg-purple-600/20 hover:bg-purple-600/40 rounded-lg transition-colors flex items-center justify-center w-12 h-12">
                                         <img src="${logoIcons.mail}" 
                                             alt="Mail" 
-                                            class="w-6 h-6 object-contain" />
+                                            class="w-6 h-6 object-contain" 
+                                        />
                                     </a>
                                     <a href="${profileData.github}" 
                                     target="_blank" 
                                     class="p-3 bg-purple-600/20 hover:bg-purple-600/40 rounded-lg transition-colors flex items-center justify-center w-12 h-12">
                                         <img src="${logoIcons.github}" 
                                             alt="GitHub" 
-                                            class="w-6 h-6 object-contain" />
+                                            class="w-6 h-6 object-contain" 
+                                        />
                                     </a>
                                     <a href="${profileData.linkedin}" 
                                     target="_blank" 
                                     class="p-3 bg-purple-600/20 hover:bg-purple-600/40 rounded-lg transition-colors flex items-center justify-center w-12 h-12">
                                         <img src="${logoIcons.linkedin}" 
                                             alt="LinkedIn" 
-                                            class="w-6 h-6 object-contain" />
+                                            class="w-6 h-6 object-contain" 
+                                        />
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="mt-8 bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-purple-500/20">
-                        <h3 class="text-2xl font-bold text-white mb-4">Compétences</h3>
+                        <h3 class="text-2xl font-bold text-white mb-4">Skills</h3>
                         <div class="grid md:grid-cols-2 gap-6">
                             <div>
-                                <h4 class="text-lg font-semibold text-purple-400 mb-3">Langages</h4>
+                                <h4 class="text-lg font-semibold text-purple-400 mb-3">Languages</h4>
                                 <div class="flex flex-wrap gap-2">
-                                    ${['C++', 'C#', 'Python', 'GLSL'].map(skill => `
+                                    ${['C++', 'C#', 'HLSL', 'Python'].map(skill => `
                                         <span class="px-4 py-2 bg-purple-600/20 text-purple-300 rounded-lg border border-purple-500/30">
                                             ${skill}
                                         </span>
@@ -180,9 +269,9 @@
                                 </div>
                             </div>
                             <div>
-                                <h4 class="text-lg font-semibold text-purple-400 mb-3">Outils</h4>
+                                <h4 class="text-lg font-semibold text-purple-400 mb-3">Tools</h4>
                                 <div class="flex flex-wrap gap-2">
-                                    ${['Unity', 'Unreal Engine', 'Git', 'Visual Studio'].map(tool => `
+                                    ${['Unreal Engine', 'Unity', 'Git', 'Visual Studio'].map(tool => `
                                         <span class="px-4 py-2 bg-purple-600/20 text-purple-300 rounded-lg border border-purple-500/30">
                                             ${tool}
                                         </span>
@@ -197,67 +286,224 @@
 
         function renderProjects() 
         {
+            // Filtrer les projets selon la catégorie active
+            const filteredProjects = activeFilter === 'all' 
+                ? projectsData 
+                : projectsData.filter(project => project.category === activeFilter);
+
+            // Obtenir toutes les catégories uniques
+            const categories = [
+                { id: 'all', label: 'All projects', icon: '📁' },
+                { id: 'C++', label: 'C++', icon: 'cpp' },
+                { id: 'Unity', label: 'Unity', icon: 'unity' },
+                { id: 'Unreal Engine', label: 'Unreal Engine', icon: 'unreal' }
+            ];
+            
             return `
                 <div>
                     <div class="mb-8">
-                        <h2 class="text-3xl font-bold text-white">Mes Projets</h2>
+                        <h2 class="text-3xl font-bold text-white">My projects</h2>
+                        <p class="text-gray-400 mt-2">Filter by engine :</p>
                     </div>
-                    <div class="grid md:grid-cols-2 gap-8">
-                        ${projectsData.map(project => `
-                            <div class="bg-white/5 backdrop-blur-lg rounded-2xl overflow-hidden border border-purple-500/20 hover:border-purple-500/40 transition-all hover:transform hover:scale-105">
-                                <img src="${project.image}" alt="${project.title}" class="w-full h-48 object-cover" />
-                                <div class="p-6">
-                                    <h3 class="text-xl font-bold text-white mb-2">${project.title}</h3>
-                                    <p class="text-sm text-purple-400 mb-3">${project.year}</p>
-                                    <p class="text-gray-300 mb-4">${project.description}</p>
-                                    <div class="flex flex-wrap gap-2 mb-4">
-                                        ${project.tech.map(tech => `
-                                            <span class="px-3 py-1 bg-purple-600/30 text-purple-300 rounded-full text-sm">
-                                                ${tech}
-                                            </span>
-                                        `).join('')}
-                                    </div>
-                                    ${project.link ? `
-                                        <a href="${project.link}" class="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors">
-                                            Voir le projet →
-                                        </a>
-                                    ` : ''}
-                                </div>
-                            </div>
+                    
+                    <!-- Filtres avec logos -->
+                    <div class="mb-8 flex flex-wrap gap-4">
+                        ${categories.map(cat => `
+                            <button
+                                onclick="changeFilter('${cat.id}')"
+                                class="px-5 py-3 rounded-lg transition-colors flex items-center gap-3 ${
+                                    activeFilter === cat.id
+                                        ? 'bg-purple-600 text-white border-2 border-purple-400 shadow-lg shadow-purple-500/30'
+                                        : 'bg-purple-600/20 text-purple-300 border border-purple-500/30 hover:bg-purple-600/40 hover:border-purple-500/50'
+                                }"
+                            >
+                                ${cat.id === 'all' 
+                                    ? '<span class="text-lg">📁</span>' 
+                                    : `<img src="${logoIcons[cat.icon]}" 
+                                        alt="${cat.label}" 
+                                        class="w-6 h-6 object-contain ${activeFilter === cat.id ? 'brightness-100' : 'brightness-50'}" 
+                                    />`
+                                }
+                                <span class="font-medium">${cat.label}</span>
+                                ${cat.id !== 'all' ? `
+                                    <span class="ml-1 px-2 py-0.5 bg-purple-500/30 text-xs rounded-full">
+                                        ${projectsData.filter(p => p.category === cat.id).length}
+                                    </span>
+                                ` : ''}
+                            </button>
                         `).join('')}
                     </div>
+
+                    <!-- Compteur de projets -->
+                    <div class="mb-6">
+                        <p class="text-purple-400">
+                            ${filteredProjects.length} project${filteredProjects.length > 1 ? 's' : ''} 
+                            ${activeFilter !== 'all' ? `in ${activeFilter}` : ''}
+                        </p>
+                    </div>
+
+                    <!-- Liste des projets -->
+                    ${filteredProjects.length > 0 ? `
+                        <div class="grid md:grid-cols-2 gap-8">
+                            ${filteredProjects.map(project => `
+                                <div class="bg-white/5 backdrop-blur-lg rounded-2xl overflow-hidden border border-purple-500/20 hover:border-purple-500/40 transition-all hover:transform hover:scale-105">
+                                    <img src="${project.image}" alt="${project.title}" class="w-full h-48 object-cover" />
+                                    <div class="p-6">
+                                        <div class="flex items-start justify-between mb-2">
+                                            <h3 class="text-xl font-bold text-white">${project.title}</h3>
+                                            <div class="flex items-center gap-2">
+                                                <img src="${logoIcons[project.category.toLowerCase().replace(' ', '')] || ''}" 
+                                                    alt="${project.category}" 
+                                                    class="w-5 h-5 object-contain" 
+                                                />
+                                                <span class="px-2 py-1 bg-purple-600/30 text-purple-300 rounded text-xs font-medium">
+                                                    ${project.category}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <p class="text-sm text-purple-400 mb-3">${project.year}</p>
+                                        <p class="text-gray-300 mb-4">${project.description}</p>
+                                        <div class="flex flex-wrap gap-2 mb-4">
+                                            ${project.tech.map(tech => `
+                                                <span class="px-3 py-1 bg-purple-600/30 text-purple-300 rounded-full text-sm">
+                                                    ${tech}
+                                                </span>
+                                            `).join('')}
+                                        </div>
+                                        ${project.link ? `
+                                            <a href="${project.link}" class="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors">
+                                                See project →
+                                            </a>
+                                        ` : ''}
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    ` : `
+                        <div class="text-center py-12">
+                            <div class="text-6xl mb-4">🔍</div>
+                            <h3 class="text-xl font-bold text-white mb-2">No project found</h3>
+                            <p class="text-gray-400">No project matches the filter "${activeFilter}"</p>
+                            <button 
+                                onclick="changeFilter('all')"
+                                class="mt-4 px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors"
+                            >
+                                See all projects
+                            </button>
+                        </div>
+                    `}
                 </div>
             `;
         }
-        
+
         function renderDocuments() 
         {
+            // Filtrer les documents selon le type actif
+            const filteredDocuments = activeDocFilter === 'all' 
+                ? documentsData 
+                : documentsData.filter(doc => doc.type === activeDocFilter);
+
+            // Catégories de documents
+            const docCategories = [
+                { id: 'all', label: 'All documents', icon: '📁', color: 'text-gray-300' },
+                { id: 'GDD', label: 'Game Design Documents', icon: '📘', color: 'text-blue-400' },
+                { id: 'Concept', label: 'Game Concepts', icon: '💡', color: 'text-yellow-400' }
+            ];
+
+            // Compter les documents par type
+            const gddCount = documentsData.filter(doc => doc.type === 'GDD').length;
+            const conceptCount = documentsData.filter(doc => doc.type === 'Concept').length;
+            
             return `
                 <div>
                     <div class="mb-8">
                         <h2 class="text-3xl font-bold text-white">Game Concepts & Documents</h2>
+                        <p class="text-gray-400 mt-2">Filter by document type :</p>
                     </div>
-                    <div class="max-w-4xl mx-auto space-y-4">
-                        ${documentsData.map(doc => `
-                            <div class="bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-purple-500/20 hover:border-purple-500/40 transition-all">
-                                <div class="flex items-start justify-between flex-wrap gap-4">
-                                    <div class="flex gap-4 flex-1">
-                                        <div class="p-3 bg-purple-600/20 rounded-lg">
-                                            <span class="text-purple-400 text-2xl">📄</span>
-                                        </div>
-                                        <div class="flex-1">
-                                            <h3 class="text-xl font-bold text-white mb-1">${doc.title}</h3>
-                                            <p class="text-sm text-purple-400 mb-2">${doc.date}</p>
-                                            <p class="text-gray-300">${doc.description}</p>
+                    
+                    <!-- Filtres documents -->
+                    <div class="mb-8 flex flex-wrap gap-4">
+                        ${docCategories.map(cat => {
+                            const isActive = activeDocFilter === cat.id;
+                            const count = cat.id === 'all' ? documentsData.length : 
+                                        cat.id === 'GDD' ? gddCount : conceptCount;
+                            
+                            return `
+                                <button
+                                    onclick="changeDocFilter('${cat.id}')"
+                                    class="px-5 py-3 rounded-lg transition-all flex items-center gap-3 ${
+                                        isActive
+                                            ? 'bg-purple-600 text-white border-2 border-purple-400 shadow-lg shadow-purple-500/30'
+                                            : 'bg-purple-600/20 text-purple-300 border border-purple-500/30 hover:bg-purple-600/40 hover:border-purple-500/50'
+                                    }"
+                                >
+                                    <span class="text-xl ${isActive ? 'text-white' : cat.color}">${cat.icon}</span>
+                                    <span class="font-medium">${cat.label}</span>
+                                    <span class="ml-1 px-2 py-0.5 ${isActive ? 'bg-white/20' : 'bg-purple-500/30'} text-xs rounded-full">
+                                        ${count}
+                                    </span>
+                                </button>
+                            `;
+                        }).join('')}
+                    </div>
+
+                    <!-- Compteur de documents -->
+                    <div class="mb-6">
+                        <p class="text-purple-400">
+                            ${filteredDocuments.length} document${filteredDocuments.length > 1 ? 's' : ''} 
+                            ${activeDocFilter === 'GDD' ? 'of Game Design' : 
+                            activeDocFilter === 'Concept' ? 'of Concepts' : ''}
+                        </p>
+                    </div>
+
+                    <!-- Liste des documents -->
+                    ${filteredDocuments.length > 0 ? `
+                        <div class="max-w-4xl mx-auto space-y-6">
+                            ${filteredDocuments.map(doc => {
+                                const isGDD = doc.type === 'GDD';
+                                const typeColor = isGDD ? 'border-blue-500/30 bg-blue-500/10' : 'border-yellow-500/30 bg-yellow-500/10';
+                                const iconColor = isGDD ? 'text-blue-400' : 'text-yellow-400';
+                                const typeText = isGDD ? 'GDD' : 'Concept';
+                                
+                                return `
+                                    <div class="bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-purple-500/20 hover:border-purple-500/40 transition-all group">
+                                        <div class="flex items-start justify-between flex-wrap gap-4">
+                                            <div class="flex gap-4 flex-1">
+                                                <div class="p-3 ${typeColor} rounded-lg group-hover:scale-105 transition-transform">
+                                                    <span class="${iconColor} text-2xl">${doc.icon}</span>
+                                                </div>
+                                                <div class="flex-1">
+                                                    <div class="flex items-center gap-3 mb-2">
+                                                        <h3 class="text-xl font-bold text-white">${doc.title}</h3>
+                                                        <span class="px-2 py-1 ${isGDD ? 'bg-blue-500/30 text-blue-300' : 'bg-yellow-500/30 text-yellow-300'} rounded text-xs font-medium">
+                                                            ${typeText}
+                                                        </span>
+                                                    </div>
+                                                    <p class="text-sm text-purple-400 mb-2">${doc.date}</p>
+                                                    <p class="text-gray-300">${doc.description}</p>
+                                                </div>
+                                            </div>
+                                            <a href="${doc.link}" class="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors inline-flex items-center gap-2 whitespace-nowrap">
+                                                Download →
+                                            </a>
                                         </div>
                                     </div>
-                                    <a href="${doc.link}" class="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors inline-flex items-center gap-2">
-                                        Télécharger →
-                                    </a>
-                                </div>
-                            </div>
-                        `).join('')}
-                    </div>
+                                `;
+                            }).join('')}
+                        </div>
+                    ` : `
+                        <div class="text-center py-12">
+                            <div class="text-6xl mb-4">📄</div>
+                            <h3 class="text-xl font-bold text-white mb-2">No document found</h3>
+                            <p class="text-gray-400">No document matches the filter "${activeDocFilter === 'GDD' ? 'Game Design Documents' : 'Game Concepts'}"</p>
+                            <button 
+                                onclick="changeDocFilter('all')"
+                                class="mt-4 px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors"
+                            >
+                                See all documents
+                            </button>
+                        </div>
+                    `}
                 </div>
             `;
         }
@@ -282,7 +528,7 @@
                 <footer class="bg-black/30 backdrop-blur-md border-t border-purple-500/20 mt-20">
                     <div class="container mx-auto px-6 py-8">
                         <p class="text-center text-gray-400">
-                            © 2025 ${profileData.name}. Portfolio développé avec ❤️
+                            © 2025 ${profileData.name}. Portfolio made with ❤️
                         </p>
                     </div>
                 </footer>
@@ -305,6 +551,20 @@
         function changeTab(tab) 
         {
             activeTab = tab;
+            activeFilter = 'all'; // Réinitialiser le filtre projets
+            activeDocFilter = 'all'; // Réinitialiser le filtre documents
+            render();
+        }
+
+        function changeFilter(filter) 
+        {
+            activeFilter = filter;
+            render();
+        }
+
+        function changeDocFilter(filter) 
+        {
+            activeDocFilter = filter;
             render();
         }
 
