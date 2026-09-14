@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background-color: #0B1520;
+  color: #E9EFF5;
+}
+
+/* Visible keyboard focus everywhere */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #FFB020;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection {
+  background: #FFB020;
+  color: #101E30;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0B1520;
+}
+::-webkit-scrollbar-thumb {
+  background: #1D3350;
+  border: 2px solid #0B1520;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2C4E70;
+}
+
+/* Blueprint grid backdrop, layered fine + coarse */
+.bp-grid {
+  background-color: #0B1520;
+  background-image:
+    linear-gradient(rgba(44,78,112,0.4) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(44,78,112,0.4) 1px, transparent 1px),
+    linear-gradient(rgba(44,78,112,0.16) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(44,78,112,0.16) 1px, transparent 1px);
+  background-size: 64px 64px, 64px 64px, 16px 16px, 16px 16px;
+  background-position: -1px -1px, -1px -1px, -1px -1px, -1px -1px;
+}
+
+/* Corner registration marks, like a technical drawing sheet */
+.reg-corners {
+  position: relative;
+}
+.reg-corners::before,
+.reg-corners::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  pointer-events: none;
+}
+.reg-corners::before {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid currentColor;
+  border-left: 2px solid currentColor;
+}
+.reg-corners::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+}
+
+.stamp {
+  transform: rotate(-6deg);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
