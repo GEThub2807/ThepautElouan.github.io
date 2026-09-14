@@ -1,31 +1,28 @@
-// Toutes les informations de cette page sont à remplacer par les tiennes.
-// C'est le seul fichier à modifier pour changer le contenu de la page d'accueil.
-
 export const profile = {
-  name: "Alex Corentin",
-  role: "Développeur & Level Designer",
+  name: "Elouan THEPAUT",
+  role: "Développeur gameplay & Level Designer",
   status: "Disponible pour une alternance",
   tagline:
-    "Je conçois des niveaux et j'écris le code qui les fait tenir debout.",
+    "Ma dev loop: Concevoir, faire, tester, faire tester, refaire",
   bio: [
-    "Je sors d'une licence développement, spécialisé jeu vidéo. J'aime le moment précis où un blockout gris et sans âme devient un espace qu'on a envie de traverser une deuxième fois.",
-    "Je code en C++ et C#, je level-design sous Unreal Engine, Unity et Godot, et je passe autant de temps à casser mes prototypes qu'à les réparer. Je cherche une alternance où je peux faire les deux : poser des mécaniques et poser des espaces."
+    "Je sors d'une licence en développement informatique de jeux vidéo. Passioné d'athlétisme et de jeux-vidéos, je travail pour faire de mes passions un métier.",
+    "Je code en C++ et C#, je level-design sous Unreal Engine 5, Unity et Godot, je passe autant de temps à casser mes prototypes qu'à les réparer. Je cherche une alternance où je peux faire les deux : implémenter des mécaniques et créer des espaces."
   ],
   location: "Lyon, France",
-  availability: "Rentrée 2026",
-  email: "contact@alexcorentin.dev",
+  availability: "Dès que possible",
+  email: "e.thepaut28@gmail.com",
   links: [
-    { label: "CV (PDF)", href: "/cv-alex-corentin.pdf" },
-    { label: "GitHub", href: "https://github.com/ton-pseudo" },
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/ton-profil" },
-    { label: "itch.io", href: "https://ton-pseudo.itch.io" }
+    { label: "CV (PDF)", href: "https://thepautcvgameplayprogrammer.vercel.app/" },
+    { label: "GitHub", href: "https://github.com/EThepaut" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/elouan-thepaut" },
+    { label: "itch.io", href: "https://gethub2807.itch.io/" }
   ],
   skills: [
     { group: "Moteurs", items: ["Unreal Engine 5", "Unity", "Godot"] },
-    { group: "Langages", items: ["C++", "C#", "GDScript", "Blueprint"] },
+    { group: "Langages", items: ["C++", "C#", "C", "LUA", "Blueprint"] },
     {
       group: "Level Design",
-      items: ["Greybox / blockout", "Pacing & flow", "Level scripting", "Playtest"]
+      items: ["Greybox / Blockout", "Pacing & flow", "Playtest"]
     }
   ]
 };
