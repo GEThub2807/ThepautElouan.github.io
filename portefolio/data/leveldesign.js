@@ -5,8 +5,8 @@
 
 export const levelDesigns = [
   {
-    slug: "galerie-du-phare",
-    title: "La Galerie du Phare",
+    slug: "glimmer-of-hope",
+    title: "Glimmer of Hope",
     project: "echos-du-gouffre",
     projectTitle: "Échos du Gouffre",
     summary:
