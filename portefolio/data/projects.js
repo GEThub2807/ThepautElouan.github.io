@@ -25,7 +25,7 @@ export const projects = [
       { type: "image", src: "/images/projects/aosts_ui_drone.png", alt: "HUD drone améliorée" },
       { type: "video", src: "/videos/aosts_ui_demo.mp4", poster: "/images/projects/aosts_ui_paths.png" },
       { type: "image", src: "/images/projects/aosts_ui_errors.png", alt: "Affichage d'erreurs utilisateur dans l'interface" },
-      { type: "video", src: "/videos/aosts_ui_demo.mp4", poster: "/images/projects/aosts_minia_crater.png" }
+      { type: "video", src: "/videos/aosts_vehicle_crater.mp4", poster: "/images/projects/aosts_minia_crater.png" }
     ]
   },
   {
