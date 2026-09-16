@@ -109,6 +109,16 @@ export const levelDesigns = [
         content: [
           "Blockout réalisé sur Godot pour tester la disposition des éléments et les mécaniques de jeu rapidement."
         ],
+      },
+      {
+        id: "art-pass",
+        label: "Art pass",
+        content: [
+          "Art pass réalisé sur Godot pour assurer la cohérence visuelle du niveau et une application fiable des assets."
+        ],
+        images: [
+          { src: "/images/ld/overhead_staffroom_artpass.png", alt: "Fissure visible dès la vague 1" }
+        ]
       }
     ]
   }
