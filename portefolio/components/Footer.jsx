@@ -7,9 +7,6 @@ export default function Footer() {
         <p className="font-mono text-xs">
           {profile.name} — {profile.location}
         </p>
-        <p className="font-mono text-xs">
-          Fait main, sans framework de portfolio tiers.
-        </p>
       </div>
     </footer>
   );
